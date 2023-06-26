@@ -18,6 +18,10 @@ export default function App() {
 
   const [filter, setFilter] = useState('');
 
+  useEffect(() => {
+    window.localStorage.setItem('contacts', JSON.stringify(contacts));
+  }, [contacts]);
+
   const addContact = (name, number) => {
     const contact = {
       id: nanoid(),
@@ -52,10 +56,6 @@ export default function App() {
       contact.name.toLowerCase().includes(normalizedFilter)
     );
   };
-
-  useEffect(() => {
-    window.localStorage.setItem('contacts', JSON.stringify(contacts));
-  }, [contacts]);
 
   const visibleContacts = getVisibleContact();
 
