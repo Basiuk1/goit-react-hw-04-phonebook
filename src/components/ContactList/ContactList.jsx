@@ -3,7 +3,9 @@ import React from 'react';
 import ContactListItem from 'components/ContactListItem/ContactListItem';
 
 const ContactList = ({ contacts, onDeleteContact }) => (
-  <ul>
+  
+ return (
+   <ul>
     {contacts.map(({ id, name, number }) => (
       <ContactListItem
         key={id}
